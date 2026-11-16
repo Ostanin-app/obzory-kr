@@ -406,9 +406,22 @@ hr { border: 0; border-top: 1px solid var(--mist); margin: 40px 0; }
   margin: 24px 0;
   -webkit-overflow-scrolling: touch;
 }
+.table-scroll {
+  overflow-x: auto;
+  margin: 24px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.table-scroll table { margin: 0; font-size: 13px; }
+.table-scroll th, .table-scroll td { padding: 8px 10px; vertical-align: top; }
 .table-wide table {
   margin: 0;
-  min-width: 760px;
+  min-width: 1000px;
+  font-size: 13px;
+}
+.table-wide th,
+.table-wide td {
+  padding: 8px 10px;
+  vertical-align: top;
 }
 table .sub {
   font-weight: 400;
