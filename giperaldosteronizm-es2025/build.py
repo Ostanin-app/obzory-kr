@@ -70,6 +70,7 @@ PAGE = """<!DOCTYPE html>
 </main>
 
 {footer}
+<script src="../zoom.js" defer></script>
 </body>
 </html>
 """

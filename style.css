@@ -439,3 +439,79 @@ figure.fig figcaption { margin-top: 8px; font-size: 13px; color: var(--steel); }
   color: var(--steel);
   font-size: 14px;
 }
+
+/* --- Увеличение рисунков --- */
+figure.fig img { cursor: zoom-in; }
+figure.fig figcaption::after {
+  content: " · нажмите, чтобы увеличить";
+  color: #8c8c8c;
+}
+@media print {
+  figure.fig figcaption::after { content: ""; }
+}
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 24px;
+  background: rgba(10, 10, 10, 0.985);
+  backdrop-filter: blur(2px);
+  -webkit-overflow-scrolling: touch;
+}
+.zoom-overlay[hidden] { display: none; }
+.zoom-overlay img {
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 48px);
+  width: auto;
+  height: auto;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  cursor: zoom-in;
+}
+.zoom-overlay.is-zoomed {
+  display: block;
+  padding: 24px 12px;
+}
+.zoom-overlay.is-zoomed img {
+  max-width: none;
+  max-height: none;
+  margin: 0 auto;
+  cursor: zoom-out;
+}
+.zoom-close {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+.zoom-close:hover { background: rgba(255, 255, 255, 0.18); }
+.zoom-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+body.zoom-open { overflow: hidden; }
+@media (max-width: 640px) {
+  .zoom-overlay { padding: 12px 8px; }
+}
