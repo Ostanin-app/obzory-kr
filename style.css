@@ -398,3 +398,31 @@ hr { border: 0; border-top: 1px solid var(--mist); margin: 40px 0; }
   padding-top: 16px;
   border-top: 1px solid var(--mist);
 }
+
+/* ---------- Широкие таблицы перевода ---------- */
+
+.table-wide {
+  overflow-x: auto;
+  margin: 24px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.table-wide table {
+  margin: 0;
+  min-width: 760px;
+}
+table .sub {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--steel);
+}
+figure.fig { margin: 28px 0; }
+figure.fig img { width: 100%; height: auto; border: 1px solid var(--mist); background: #fff; }
+figure.fig figcaption { margin-top: 8px; font-size: 13px; color: var(--steel); }
+.note {
+  border-left: 3px solid var(--mist);
+  padding: 4px 0 4px 16px;
+  margin: 20px 0;
+  color: var(--steel);
+  font-size: 14px;
+}
